@@ -8,53 +8,74 @@
 import SwiftUI
 
 struct ContentView: View {
-    var emojis = ["🚲", "🚂", "🚁", "🚜", "🚕", "🏎", "🚑", "🚓", "🚒", "✈️", "🚀", "⛵️", "🛸", "🛶", "🚌", "🏍", "🛺", "🚠", "🛵", "🚗", "🚚", "🚇", "🛻", "🚝"]
+    @State var emojis = ["🚲", "🚂", "🚁", "🚜", "🚕", "🏎", "🚑", "🚓", "🚒", "✈️", "🚀", "⛵️", "🛸", "🛶", "🚌", "🏍", "🛺", "🚠", "🛵", "🚗", "🚚", "🚇", "🛻", "🚝"]
     
-    @State var emojiCount = 10
+    let emojisVehicles = ["🚲", "🚂", "🚁", "🚜", "🚕", "🏎", "🚑", "🚓", "🚒", "✈️", "🚀", "⛵️", "🛸", "🛶", "🚌", "🏍", "🛺", "🚠", "🛵", "🚗", "🚚", "🚇", "🛻", "🚝"]
+    
+    let emojisAnimals = ["🐮", "🐶", "🐱", "🐷", "🐸", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "🐻‍❄️", "🐯", "🐨", "🦁"]
+    
+    let emojisActivities = ["⚽️", "🏀", "⚾️", "🥎", "🏐", "🏉", "🪀", "🏓", "🥏", "🎱"]
     
     var body: some View {
-        VStack {
-            ScrollView {
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 65))]) {
-                    ForEach(emojis[0..<emojiCount], id: \.self) { emoji in
-                        CardView(content: emoji).aspectRatio(2/3, contentMode: .fit)
+        NavigationView {
+            VStack {
+                ScrollView {
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 65))]) {
+                        ForEach(emojis, id: \.self) { emoji in
+                            CardView(content: emoji).aspectRatio(2/3, contentMode: .fit)
+                        }
                     }
                 }
-            }
-            .foregroundColor(.red)
-            Spacer()
-            HStack {
-                remove
+                .foregroundColor(.red)
                 Spacer()
-//                Button(action: {}, label: { Text("Add Card")})
-                Spacer()
-                add
+                HStack(spacing: 30) {
+                    emojiVehiclesButton
+                    emojiAnimalesButton
+                    emojiActivitiesButton
+                }
+                .font(.largeTitle)
+                .padding(10)
+                
             }
-            .font(.largeTitle)
             .padding(.horizontal)
-            
-        }
-        .padding(.horizontal)
-        
-    }
-    
-    var remove: some View {
-        Button {
-            if emojiCount > 1 {
-                emojiCount -= 1
-            }
-        } label: {
-            Image(systemName: "minus.circle")
+            .navigationTitle("Memorize")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
     
-    var add: some View {
+    var emojiVehiclesButton: some View {
         Button {
-            if emojiCount < emojis.count {
-                emojiCount += 1
-            }
+            emojis = emojisVehicles.shuffled()
         } label: {
-            Image(systemName: "plus.circle")
+            VStack{
+                Image(systemName: "car")
+                Text("Animals")
+                    .font(.callout)
+            }
+        }
+    }
+    
+    var emojiAnimalesButton: some View {
+        Button {
+            emojis = emojisAnimals.shuffled()
+        } label: {
+            VStack{
+                Image(systemName: "pawprint.circle")
+                Text("Animals")
+                    .font(.callout)
+            }
+        }
+    }
+    
+    var emojiActivitiesButton: some View {
+        Button {
+            emojis = emojisActivities.shuffled()
+        } label: {
+            VStack{
+                Image(systemName: "figure.walk")
+                Text("Animals")
+                    .font(.callout)
+            }
         }
     }
 }
