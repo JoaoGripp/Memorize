@@ -28,13 +28,13 @@ struct ContentView: View {
                 }
                 .foregroundColor(.red)
                 Spacer()
-                HStack(spacing: 30) {
-                    emojiVehiclesButton
-                    emojiAnimalesButton
-                    emojiActivitiesButton
-                }
-                .font(.largeTitle)
-                .padding(10)
+//                HStack(spacing: 30) {
+//                    emojiVehiclesButton
+//                    emojiAnimalesButton
+//                    emojiActivitiesButton
+//                }
+//                .font(.largeTitle)
+//                .padding(10)
                 
             }
             .padding(.horizontal)
@@ -43,41 +43,41 @@ struct ContentView: View {
         }
     }
     
-    var emojiVehiclesButton: some View {
-        Button {
-            emojis = emojisVehicles.shuffled()
-        } label: {
-            VStack{
-                Image(systemName: "car")
-                Text("Animals")
-                    .font(.callout)
-            }
-        }
-    }
-    
-    var emojiAnimalesButton: some View {
-        Button {
-            emojis = emojisAnimals.shuffled()
-        } label: {
-            VStack{
-                Image(systemName: "pawprint.circle")
-                Text("Animals")
-                    .font(.callout)
-            }
-        }
-    }
-    
-    var emojiActivitiesButton: some View {
-        Button {
-            emojis = emojisActivities.shuffled()
-        } label: {
-            VStack{
-                Image(systemName: "figure.walk")
-                Text("Animals")
-                    .font(.callout)
-            }
-        }
-    }
+//    var emojiVehiclesButton: some View {
+//        Button {
+//            emojis = emojisVehicles.shuffled()
+//        } label: {
+//            VStack{
+//                Image(systemName: "car")
+//                Text("Animals")
+//                    .font(.callout)
+//            }
+//        }
+//    }
+//    
+//    var emojiAnimalesButton: some View {
+//        Button {
+//            emojis = emojisAnimals.shuffled()
+//        } label: {
+//            VStack{
+//                Image(systemName: "pawprint.circle")
+//                Text("Animals")
+//                    .font(.callout)
+//            }
+//        }
+//    }
+//    
+//    var emojiActivitiesButton: some View {
+//        Button {
+//            emojis = emojisActivities.shuffled()
+//        } label: {
+//            VStack{
+//                Image(systemName: "figure.walk")
+//                Text("Activities")
+//                    .font(.callout)
+//            }
+//        }
+//    }
 }
 
 struct ContentView_Previews: PreviewProvider {
