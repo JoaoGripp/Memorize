@@ -15,6 +15,7 @@
 		F89A32E528A15AA900926125 /* EmojiMemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89A32E428A15AA900926125 /* EmojiMemoryGame.swift */; };
 		F89A32E728A3F3A200926125 /* AspectVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89A32E628A3F3A200926125 /* AspectVGrid.swift */; };
 		F89A32E928A40BF100926125 /* Pie.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89A32E828A40BF100926125 /* Pie.swift */; };
+		F89A32EB28A4345000926125 /* Cardify.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89A32EA28A4345000926125 /* Cardify.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		F89A32E428A15AA900926125 /* EmojiMemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMemoryGame.swift; sourceTree = "<group>"; };
 		F89A32E628A3F3A200926125 /* AspectVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectVGrid.swift; sourceTree = "<group>"; };
 		F89A32E828A40BF100926125 /* Pie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pie.swift; sourceTree = "<group>"; };
+		F89A32EA28A4345000926125 /* Cardify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cardify.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				F88034EE289843810074E8DD /* Preview Content */,
 				F89A32E628A3F3A200926125 /* AspectVGrid.swift */,
 				F89A32E828A40BF100926125 /* Pie.swift */,
+				F89A32EA28A4345000926125 /* Cardify.swift */,
 			);
 			path = Memorize;
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F89A32E928A40BF100926125 /* Pie.swift in Sources */,
+				F89A32EB28A4345000926125 /* Cardify.swift in Sources */,
 				F89A32E328A1575B00926125 /* MemoryGame.swift in Sources */,
 				F88034EB2898437F0074E8DD /* EmojiMemoryGameView.swift in Sources */,
 				F88034E92898437F0074E8DD /* MemorizeApp.swift in Sources */,
