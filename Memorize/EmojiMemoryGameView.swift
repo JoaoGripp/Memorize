@@ -32,6 +32,18 @@ struct EmojiMemoryGameView: View {
         !dealt.contains(card.id)
     }
     
+    private func dealAnmination(for card: EmojiMemoryGame.Card) -> Animation {
+        var delay = 0.0
+        if let index = game.cards.firstIndex(where: { $0.id == card.id }) {
+            delay = Double(index) * (CardConstants.totalDealDuration / Double(game.cards.count))
+        }
+        return Animation.easeInOut(duration: CardConstants.dealDuration).delay(delay)
+    }
+    
+    private func zIndex(of card: EmojiMemoryGame.Card) -> Double {
+        -Double(game.cards.firstIndex(where: { $0.id == card.id }) ?? 0)
+    }
+    
     var gameBody: some View {
         AspectVGrid(items: game.cards, aspectRatio: 2/3) { card in
             if isUndealt(card) || (card.isMatched && !card.isFaceUp) {
@@ -41,6 +53,7 @@ struct EmojiMemoryGameView: View {
                     .matchedGeometryEffect(id: card.id, in: dealingNamespace)
                     .padding(4)
                     .transition(AnyTransition.asymmetric(insertion: .identity, removal: .scale))
+                    .zIndex(zIndex(of: card))
                     .onTapGesture {
                         withAnimation(.easeInOut(duration: 0.7)) {
                             game.choose(card)
@@ -64,8 +77,8 @@ struct EmojiMemoryGameView: View {
         .foregroundColor(CardConstants.color)
         .onTapGesture {
 //            "deal" cards
-            withAnimation(.easeInOut(duration: 3)) {
-                for card in game.cards {
+            for card in game.cards {
+                withAnimation(dealAnmination(for: card)) {
                     deal(card)
                 }
             }
